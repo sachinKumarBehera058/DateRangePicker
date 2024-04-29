@@ -7,7 +7,7 @@ import './LastDateRangePicker.css';
 import { Button } from '@attrybtech/attryb-ui';
 
 const LastDateRangePicker: React.FC = () => {
-  const [daysAgo, setDaysAgo] = useState<string>(''); // Initialize with an empty string
+  const [daysAgo, setDaysAgo] = useState<string>('6'); // Initialize with an empty string
   const [state, setState] = useState([
     {
       startDate: moment().subtract(Number(daysAgo), 'days').startOf('day').toDate(),

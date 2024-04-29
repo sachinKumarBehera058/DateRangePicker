@@ -28,13 +28,19 @@ const customStyles = {
 
 function App() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
-  const [selectedOption, setSelectedOption] = useState(null);
+  const [selectedOption, setSelectedOption] = useState("Last"); // Initialize with the last option
 
   const handleOpenModal = () => {
     setModalIsOpen(true);
   };
 
   const handleCloseModal = () => {
+    setModalIsOpen(false);
+    setSelectedOption("Last"); // Reset selected option when closing modal
+  };
+
+  const handleApply = () => {
+    // Handle apply button click here
     setModalIsOpen(false);
   };
 
@@ -57,16 +63,17 @@ function App() {
           <button onClick={() => handleOptionClick("Since")} style={{ cursor: 'pointer' }}>Since</button>
           <button onClick={() => handleOptionClick("Last")} style={{ cursor: 'pointer' }}>Last</button>
         </div>
-        {selectedOption === "Fixed" && (
-          <FixedDateRangePicker />
+        {selectedOption && (
+          <>
+            {selectedOption === "Fixed" && <FixedDateRangePicker />}
+            {selectedOption === "Last" && <LastDateRangePicker />}
+            {selectedOption === "Since" && <SinceDateRangePicker />}
+          </>
         )}
-        {selectedOption === "Last" && (
-          <LastDateRangePicker />
-        )}
-        {selectedOption === "Since" && (
-          <SinceDateRangePicker />
-        )}
-        <button onClick={handleCloseModal} style={{ marginTop: '20px' }}>Close</button>
+        <div className="button-group">
+          <button onClick={handleCloseModal} className="close-button">Close</button>
+          <button onClick={handleApply} className="apply-button">Apply</button>
+        </div>
       </Modal>
     </div>
   );
