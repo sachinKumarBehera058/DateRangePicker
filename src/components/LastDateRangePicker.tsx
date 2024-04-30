@@ -67,7 +67,7 @@ const LastDateRangePicker: React.FC<DateRangePickerProps> = ({onDateRangeChange}
         <Input
           variant={"input-with-label"}
           inputType={"number"}
-          preFilledValue={daysAgo}
+          preFilledValue={daysAgo=== '0' ? "Enter num" : daysAgo}
           onChange={handleInputChange}
         />
         <Input
