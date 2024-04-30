@@ -4,6 +4,7 @@ import LastDateRangePicker from "./components/LastDateRangePicker";
 import SinceDateRangePicker from "./components/SinceDateRangePicker";
 import FixedDateRangePicker from "./components/FixedDateRangePicker";
 import './App.css'
+import { Button } from "@attrybtech/attryb-ui";
 
 Modal.setAppElement("#root");
 
@@ -28,7 +29,7 @@ const customStyles = {
 
 function App() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
-  const [selectedOption, setSelectedOption] = useState("Last"); // Initialize with the last option
+  const [selectedOption, setSelectedOption] = useState("Last"); 
 
   const handleOpenModal = () => {
     setModalIsOpen(true);
@@ -50,8 +51,7 @@ function App() {
 
   return (
     <div>
-      <h1>Custom Date Range</h1>
-      <button onClick={handleOpenModal}>Select Date Range</button>
+      <Button variant="solid" colorScheme="secondary" onClick={handleOpenModal}>Select Date Range</Button>
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={handleCloseModal}
@@ -59,9 +59,9 @@ function App() {
         contentLabel="Date Range Modal"
       >
         <div className="button-container">
-          <button onClick={() => handleOptionClick("Fixed")} style={{ cursor: 'pointer' }}>Fixed</button>
-          <button onClick={() => handleOptionClick("Since")} style={{ cursor: 'pointer' }}>Since</button>
-          <button onClick={() => handleOptionClick("Last")} style={{ cursor: 'pointer' }}>Last</button>
+          <Button variant="solid" colorScheme="secondary" onClick={() => handleOptionClick("Fixed")} style={{ cursor: 'pointer' }}>Fixed</Button>
+          <Button variant="solid" colorScheme="secondary" onClick={() => handleOptionClick("Since")} style={{ cursor: 'pointer' }}>Since</Button>
+          <Button variant="solid" colorScheme="secondary" onClick={() => handleOptionClick("Last")} style={{ cursor: 'pointer' }}>Last</Button>
         </div>
         {selectedOption && (
           <>
@@ -71,8 +71,8 @@ function App() {
           </>
         )}
         <div className="button-group">
-          <button onClick={handleCloseModal} className="close-button">Close</button>
-          <button onClick={handleApply} className="apply-button">Apply</button>
+          <Button onClick={handleCloseModal} >Close</Button>
+          <Button onClick={handleApply} >Apply</Button>
         </div>
       </Modal>
     </div>

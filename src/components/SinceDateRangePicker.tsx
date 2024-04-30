@@ -3,7 +3,7 @@ import { DateRangePicker } from 'react-date-range';
 import 'react-date-range/dist/styles.css';
 import 'react-date-range/dist/theme/default.css';
 import moment from 'moment';
-import { Button } from '@attrybtech/attryb-ui';
+import { Input } from '@attrybtech/attryb-ui';
 
 const SinceDateRangePicker: React.FC = () => {
   const [daysAgo, setDaysAgo] = useState<string>('7');
@@ -24,11 +24,20 @@ const SinceDateRangePicker: React.FC = () => {
     setState([{ ...ranges.selection, endDate: moment().startOf('day').toDate() }]);
   };
 
+  function handleInputChange(_e: any): void {
+    throw new Error('Function not implemented.');
+  }
+
   return (
     <div className="date-range-container">
       {state.map((range, index) => (
         <div key={index} className="selected-range">
-          <Button variant="solid" colorScheme="secondary">{moment(range.startDate).format('MMMM DD, YYYY')} </Button>|
+          <Input
+          variant={"input-with-label"}
+          inputType={"text"}
+          preFilledValue={moment(range.startDate).format('MMMM DD, YYYY')}
+          onChange={handleInputChange}
+          />
         </div>
       ))}
       <DateRangePicker

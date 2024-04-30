@@ -4,6 +4,11 @@
     align-items: center;
   }
   
+  .date-range-days{
+    display: flex;
+    justify-content: space-around;
+  }
+
   .selected-range {
     display: flex;
     margin-bottom: 10px;

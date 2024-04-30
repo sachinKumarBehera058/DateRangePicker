@@ -4,10 +4,10 @@ import 'react-date-range/dist/styles.css';
 import 'react-date-range/dist/theme/default.css';
 import moment from 'moment';
 import './LastDateRangePicker.css';
-import { Button } from '@attrybtech/attryb-ui';
+import { Button, Input } from '@attrybtech/attryb-ui';
 
 const LastDateRangePicker: React.FC = () => {
-  const [daysAgo, setDaysAgo] = useState<string>('6'); // Initialize with an empty string
+  const [daysAgo, setDaysAgo] = useState<string>('7'); // Initialize with an empty string
   const [state, setState] = useState([
     {
       startDate: moment().subtract(Number(daysAgo), 'days').startOf('day').toDate(),
@@ -21,7 +21,7 @@ const LastDateRangePicker: React.FC = () => {
     const endDate = state[0].endDate;
 
     // Calculate the difference between endDate and startDate
-    const daysDifference = moment(endDate).diff(moment(startDate), 'days')+1;
+    const daysDifference = moment(endDate).diff(moment(startDate), 'days');
 
     // Update the daysAgo state with the difference
     setDaysAgo(daysDifference.toString());
@@ -42,16 +42,19 @@ const LastDateRangePicker: React.FC = () => {
 
   return (
     <div className="date-range-container">
-      <h4>Selected Date Range</h4>
-      <div>
-        <input type="number" value={daysAgo} onChange={handleInputChange} />
+      <div className='date-range-days'>
+        <Input
+          variant={"input-with-label"}
+          inputType={"number"}
+          preFilledValue={daysAgo}
+          onChange={handleInputChange}
+        />
+        <Input
+          variant={"input-with-label"}
+          inputType={"text"}
+          preFilledValue={"Days"}
+        />
       </div>
-      {state.map((range, index) => (
-        <div key={index} className="selected-range">
-          <Button variant="solid" colorScheme="secondary">{moment(range.startDate).format('MMMM DD, YYYY')} </Button>|
-          <Button variant="solid" colorScheme="secondary">{moment(range.endDate).format('MMMM DD, YYYY')}</Button>
-        </div>
-      ))}
       <DateRangePicker
         onChange={handleRangeChange}
         months={1}

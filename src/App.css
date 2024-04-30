@@ -1,4 +1,23 @@
+
 .button-container{
     display: flex;
     justify-content: space-around;
+    box-shadow: 0px 2px 8px 0px rgba(23, 43, 77, 0.2);
+}
+
+.rdrDefinedRangesWrapper{
+    display: none;
+}
+
+.button-group{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.input-component .input-component__wrapper .wrapper__input-container{
+    width: 80% !important;
+}
+
+.input-component .input-component__wrapper .wrapper__input-container--new{
+    padding: 0.5rem !important;
 }
