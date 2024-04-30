@@ -6,6 +6,7 @@ import FixedDateRangePicker from "./components/FixedDateRangePicker";
 import calenderIcon from "./assets/CalenderIcon.svg";
 import './App.css'
 import { Button } from "@attrybtech/attryb-ui";
+import moment from 'moment';
 
 Modal.setAppElement("#root");
 
@@ -55,11 +56,27 @@ function App() {
     setSelectedDateRange(dateRange);
   };
 
+  const renderSelectedDateRangeText = () => {
+    if (selectedOption === "Last") {
+      // Calculate the difference between the start and end dates
+      const startDate = moment(selectedDateRange.split(" - ")[0], "MMMM DD, YYYY");
+      const endDate = moment(selectedDateRange.split(" - ")[1], "MMMM DD, YYYY");
+      const differenceInDays = endDate.diff(startDate, 'days');
+      return isNaN(differenceInDays) ? "Select Date Range" : `Last ${differenceInDays} Days`;
+    } else if (selectedOption === "Since") {
+      // Display only the start date
+      return `Since ${selectedDateRange.split(" - ")[0]}`;
+    } else {
+      // For other options, display the full date range
+      return selectedDateRange;
+    }
+  };
+
   return (
-    <div>
+    <div className="Daterange-Picker--container">
       <Button variant="solid" colorScheme="secondary" onClick={handleOpenModal}>
         <img src={calenderIcon}></img>
-        {selectedDateRange || "Select Date Range"}
+        {renderSelectedDateRangeText()}
       </Button>
       <Modal
         isOpen={modalIsOpen}
@@ -68,9 +85,18 @@ function App() {
         contentLabel="Date Range Modal"
       >
         <div className="button-container">
-          <Button variant="solid" colorScheme="secondary" onClick={() => handleOptionClick("Fixed")} style={{ cursor: 'pointer' }}>Fixed</Button>
-          <Button variant="solid" colorScheme="secondary" onClick={() => handleOptionClick("Since")} style={{ cursor: 'pointer' }}>Since</Button>
-          <Button variant="solid" colorScheme="secondary" onClick={() => handleOptionClick("Last")} style={{ cursor: 'pointer' }}>Last</Button>
+          <a className="button-container--toggleOption" onClick={() => handleOptionClick("Fixed")} >
+            <div className="container">Fixed</div>
+            <div className="highlighted-bar"></div>
+          </a>
+          <a className="button-container--toggleOption" onClick={() => handleOptionClick("Since")} >
+            <div className="container">Since</div>
+            <div className="highlighted-bar"></div>
+          </a>
+          <a className="button-container--toggleOption" onClick={() => handleOptionClick("Last")} >
+            <div className="container">Last</div>
+            <div className="highlighted-bar"></div>
+          </a>
         </div>
         {selectedOption && (
           <>

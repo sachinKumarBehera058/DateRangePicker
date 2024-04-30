@@ -3,7 +3,6 @@ import { DateRangePicker } from 'react-date-range';
 import 'react-date-range/dist/styles.css';
 import 'react-date-range/dist/theme/default.css';
 import moment from 'moment';
-import './LastDateRangePicker.css';
 import {Input } from '@attrybtech/attryb-ui';
 
 interface DateRangePickerProps {
@@ -67,7 +66,7 @@ const LastDateRangePicker: React.FC<DateRangePickerProps> = ({onDateRangeChange}
         <Input
           variant={"input-with-label"}
           inputType={"number"}
-          preFilledValue={daysAgo}
+          preFilledValue={daysAgo=== '0' ? "Enter num" : daysAgo}
           onChange={handleInputChange}
         />
         <Input
