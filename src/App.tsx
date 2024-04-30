@@ -87,17 +87,18 @@ function App() {
         <div className="button-container">
           <a className="button-container--toggleOption" onClick={() => handleOptionClick("Fixed")} >
             <div className="container">Fixed</div>
-            <div className="highlighted-bar"></div>
+            {selectedOption === "Fixed" && <div className="highlighted-bar"></div>}
           </a>
           <a className="button-container--toggleOption" onClick={() => handleOptionClick("Since")} >
             <div className="container">Since</div>
-            <div className="highlighted-bar"></div>
+            {selectedOption === "Since" && <div className="highlighted-bar"></div>}
           </a>
           <a className="button-container--toggleOption" onClick={() => handleOptionClick("Last")} >
             <div className="container">Last</div>
-            <div className="highlighted-bar"></div>
+            {selectedOption === "Last" && <div className="highlighted-bar"></div>}
           </a>
         </div>
+
         {selectedOption && (
           <>
             {selectedOption === "Fixed" && <FixedDateRangePicker onDateRangeChange={handleDateRangeChange} />}
