@@ -3,6 +3,7 @@ import Modal from "react-modal";
 import LastDateRangePicker from "./components/LastDateRangePicker";
 import SinceDateRangePicker from "./components/SinceDateRangePicker";
 import FixedDateRangePicker from "./components/FixedDateRangePicker";
+import calenderIcon from "./assets/CalenderIcon.svg";
 import './App.css'
 import { Button } from "@attrybtech/attryb-ui";
 
@@ -29,7 +30,8 @@ const customStyles = {
 
 function App() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
-  const [selectedOption, setSelectedOption] = useState("Last"); 
+  const [selectedOption, setSelectedOption] = useState("Last");
+  const [selectedDateRange, setSelectedDateRange] = useState("");
 
   const handleOpenModal = () => {
     setModalIsOpen(true);
@@ -49,9 +51,16 @@ function App() {
     setSelectedOption(option);
   };
 
+  const handleDateRangeChange = (dateRange: string) => {
+    setSelectedDateRange(dateRange);
+  };
+
   return (
     <div>
-      <Button variant="solid" colorScheme="secondary" onClick={handleOpenModal}>Select Date Range</Button>
+      <Button variant="solid" colorScheme="secondary" onClick={handleOpenModal}>
+        <img src={calenderIcon}></img>
+        {selectedDateRange || "Select Date Range"}
+      </Button>
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={handleCloseModal}
@@ -65,11 +74,12 @@ function App() {
         </div>
         {selectedOption && (
           <>
-            {selectedOption === "Fixed" && <FixedDateRangePicker />}
-            {selectedOption === "Last" && <LastDateRangePicker />}
-            {selectedOption === "Since" && <SinceDateRangePicker />}
+            {selectedOption === "Fixed" && <FixedDateRangePicker onDateRangeChange={handleDateRangeChange} />}
+            {selectedOption === "Last" && <LastDateRangePicker onDateRangeChange={handleDateRangeChange} />}
+            {selectedOption === "Since" && <SinceDateRangePicker onDateRangeChange={handleDateRangeChange} />}
           </>
         )}
+
         <div className="button-group">
           <Button onClick={handleCloseModal} >Close</Button>
           <Button onClick={handleApply} >Apply</Button>
