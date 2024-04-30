@@ -21,7 +21,7 @@ const customStyles = {
     bottom: 'auto',
     marginRight: '-50%',
     transform: 'translate(-50%, -50%)',
-    padding: '20px',
+    padding: '0  0 20px 0',
     minWidth: '300px',
     borderRadius: '8px',
     boxShadow: '0px 4px 16px rgba(0, 0, 0, 0.2)',
@@ -107,8 +107,12 @@ function App() {
         )}
 
         <div className="button-group">
-          <Button onClick={handleCloseModal} >Close</Button>
-          <Button onClick={handleApply} >Apply</Button>
+          <Button variant="solid" colorScheme="secondary" onClick={handleCloseModal} >
+            Close
+          </Button>
+          <Button onClick={handleApply} >
+            Apply
+          </Button>
         </div>
       </Modal>
     </div>
