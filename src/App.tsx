@@ -3,6 +3,7 @@ import Modal from "react-modal";
 import LastDateRangePicker from "./components/LastDateRangePicker";
 import SinceDateRangePicker from "./components/SinceDateRangePicker";
 import FixedDateRangePicker from "./components/FixedDateRangePicker";
+import calenderIcon from "./assets/CalenderIcon.svg";
 import './App.css'
 import { Button } from "@attrybtech/attryb-ui";
 
@@ -29,7 +30,7 @@ const customStyles = {
 
 function App() {
   const [modalIsOpen, setModalIsOpen] = useState(false);
-  const [selectedOption, setSelectedOption] = useState("Last"); 
+  const [selectedOption, setSelectedOption] = useState("Last");
   const [selectedDateRange, setSelectedDateRange] = useState("");
 
   const handleOpenModal = () => {
@@ -57,6 +58,7 @@ function App() {
   return (
     <div>
       <Button variant="solid" colorScheme="secondary" onClick={handleOpenModal}>
+        <img src={calenderIcon}></img>
         {selectedDateRange || "Select Date Range"}
       </Button>
       <Modal
@@ -71,12 +73,12 @@ function App() {
           <Button variant="solid" colorScheme="secondary" onClick={() => handleOptionClick("Last")} style={{ cursor: 'pointer' }}>Last</Button>
         </div>
         {selectedOption && (
-  <>
-    {selectedOption === "Fixed" && <FixedDateRangePicker onDateRangeChange={handleDateRangeChange} />}
-    {selectedOption === "Last" && <LastDateRangePicker onDateRangeChange={handleDateRangeChange} />}
-    {selectedOption === "Since" && <SinceDateRangePicker onDateRangeChange={handleDateRangeChange} />}
-  </>
-)}
+          <>
+            {selectedOption === "Fixed" && <FixedDateRangePicker onDateRangeChange={handleDateRangeChange} />}
+            {selectedOption === "Last" && <LastDateRangePicker onDateRangeChange={handleDateRangeChange} />}
+            {selectedOption === "Since" && <SinceDateRangePicker onDateRangeChange={handleDateRangeChange} />}
+          </>
+        )}
 
         <div className="button-group">
           <Button onClick={handleCloseModal} >Close</Button>
