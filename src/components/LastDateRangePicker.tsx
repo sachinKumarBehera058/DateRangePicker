@@ -4,9 +4,14 @@ import 'react-date-range/dist/styles.css';
 import 'react-date-range/dist/theme/default.css';
 import moment from 'moment';
 import './LastDateRangePicker.css';
-import { Button, Input } from '@attrybtech/attryb-ui';
+import {Input } from '@attrybtech/attryb-ui';
 
-const LastDateRangePicker: React.FC = () => {
+interface DateRangePickerProps {
+  onDateRangeChange: (dateRange: string) => void;
+}
+
+
+const LastDateRangePicker: React.FC<DateRangePickerProps> = ({onDateRangeChange}) => {
   const [daysAgo, setDaysAgo] = useState<string>('7'); // Initialize with an empty string
   const [state, setState] = useState([
     {
@@ -27,10 +32,20 @@ const LastDateRangePicker: React.FC = () => {
     setDaysAgo(daysDifference.toString());
   }, [state]);
 
+  // const handleRangeChange = (ranges: any) => {
+  //   // Disable changing end date by setting it to the current date
+  //   ranges.selection.endDate = moment().startOf('day').toDate();
+  //   setState([ranges.selection]);
+  // };
+
   const handleRangeChange = (ranges: any) => {
-    // Disable changing end date by setting it to the current date
-    ranges.selection.endDate = moment().startOf('day').toDate();
-    setState([ranges.selection]);
+    const startDate = ranges.selection.startDate;
+    const endDate = moment().startOf('day').toDate();
+    const formattedStartDate = moment(startDate).format("MMMM DD, YYYY");
+    const formattedEndDate = moment(endDate).format("MMMM DD, YYYY");
+    const dateRange = `${formattedStartDate} - ${formattedEndDate}`;
+    onDateRangeChange(dateRange); 
+    setState([{ ...ranges.selection, endDate: moment().startOf('day').toDate() }]);
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {

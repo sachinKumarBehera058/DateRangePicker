@@ -3,9 +3,13 @@ import { DateRangePicker } from 'react-date-range';
 import 'react-date-range/dist/styles.css';
 import 'react-date-range/dist/theme/default.css';
 import moment from 'moment';
-import { Button, Input } from '@attrybtech/attryb-ui';
+import { Input } from '@attrybtech/attryb-ui';
 
-const FixedDateRangePicker: React.FC = () => {
+interface DateRangePickerProps {
+  onDateRangeChange: (dateRange: string) => void;
+}
+
+const FixedDateRangePicker: React.FC<DateRangePickerProps> = ({onDateRangeChange}) => {
   const [daysAgo, setDaysAgo] = useState<string>('7');
   const [state, setState] = useState([
     {
@@ -21,10 +25,19 @@ const FixedDateRangePicker: React.FC = () => {
     setState([{ startDate, endDate, key: 'selection' }]);
   }, [daysAgo]);
 
+  // const handleRangeChange = (ranges: any) => {
+  //   setState([ranges.selection]);
+  // };
+  
   const handleRangeChange = (ranges: any) => {
+    const startDate = ranges.selection.startDate;
+    const endDate = ranges.selection.endDate;
+    const formattedStartDate = moment(startDate).format("MMMM DD, YYYY");
+    const formattedEndDate = moment(endDate).format("MMMM DD, YYYY");
+    const dateRange = `${formattedStartDate} - ${formattedEndDate}`;
+    onDateRangeChange(dateRange); 
     setState([ranges.selection]);
   };
-
 
   function handleInputChange(e: any): void {
     throw new Error('Function not implemented.');

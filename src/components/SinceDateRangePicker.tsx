@@ -5,7 +5,11 @@ import 'react-date-range/dist/theme/default.css';
 import moment from 'moment';
 import { Input } from '@attrybtech/attryb-ui';
 
-const SinceDateRangePicker: React.FC = () => {
+interface DateRangePickerProps {
+  onDateRangeChange: (dateRange: string) => void;
+}
+
+const SinceDateRangePicker: React.FC<DateRangePickerProps> = ({onDateRangeChange}) => {
   const [daysAgo, setDaysAgo] = useState<string>('7');
   const [state, setState] = useState([
     {
@@ -20,7 +24,17 @@ const SinceDateRangePicker: React.FC = () => {
     setState([{ startDate, endDate: moment().startOf('day').toDate(), key: 'selection' }]);
   }, [daysAgo]);
 
+  // const handleRangeChange = (ranges: any) => {
+  //   setState([{ ...ranges.selection, endDate: moment().startOf('day').toDate() }]);
+  // };
+
   const handleRangeChange = (ranges: any) => {
+    const startDate = ranges.selection.startDate;
+    const endDate = moment().startOf('day').toDate();
+    const formattedStartDate = moment(startDate).format("MMMM DD, YYYY");
+    const formattedEndDate = moment(endDate).format("MMMM DD, YYYY");
+    const dateRange = `${formattedStartDate} - ${formattedEndDate}`;
+    onDateRangeChange(dateRange); 
     setState([{ ...ranges.selection, endDate: moment().startOf('day').toDate() }]);
   };
 
