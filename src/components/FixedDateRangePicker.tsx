@@ -40,6 +40,7 @@ const FixedDateRangePicker: React.FC<DateRangePickerProps> = ({onDateRangeChange
   };
 
   function handleInputChange(e: any): void {
+    setDaysAgo(e.target.value);
     throw new Error('Function not implemented.');
   }
 

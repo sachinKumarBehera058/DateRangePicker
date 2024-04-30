@@ -38,7 +38,8 @@ const SinceDateRangePicker: React.FC<DateRangePickerProps> = ({onDateRangeChange
     setState([{ ...ranges.selection, endDate: moment().startOf('day').toDate() }]);
   };
 
-  function handleInputChange(_e: any): void {
+  function handleInputChange(e: any): void {
+    setDaysAgo(e.target.value);
     throw new Error('Function not implemented.');
   }
 
