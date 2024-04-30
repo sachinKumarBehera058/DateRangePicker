@@ -1,23 +1,80 @@
-
-.button-container{
+.button-container {
     display: flex;
+    height: 40px;
     justify-content: space-around;
-    box-shadow: 0px 2px 8px 0px rgba(23, 43, 77, 0.2);
+    margin-bottom: 16px;
+    background-color: #fff;
+    border-bottom: 1px solid var(--color-primary-standard);
 }
 
-.rdrDefinedRangesWrapper{
+.button-container--toggleOption {
+    text-decoration: none;
+    cursor: pointer;
+    align-items: center;
+    background-color: transparent;
+    border-radius: 0px;
+    color: var(--color-primary-standard);
+    display: flex;
+    flex: 1 1 0%;
+    flex-direction: column;
+    font-size: 16px;
+    font-weight: 800;
+    height: 100%;
+    justify-content: center;
+    padding: 0px 12px;
+    text-align: center;
+    transition: background-color 0.2s ease 0s;
+    white-space: nowrap;
+}
+
+.container {
+    align-items: center;
+    display: flex;
+    flex-basis: auto;
+    flex-grow: 1;
+    justify-content: center;
+}
+
+.highlighted-bar {
+    border-radius: 12px;
+    height: 3px;
+    width: min(100%, 40px);
+    color: #fff;
+}
+
+.rdrDefinedRangesWrapper {
     display: none;
 }
 
-.button-group{
+.button-group {
     display: flex;
     justify-content: space-evenly;
 }
 
-.input-component .input-component__wrapper .wrapper__input-container{
+.date-range-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.date-range-days {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.selected-range {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.input-component {
     width: 80% !important;
 }
 
-.input-component .input-component__wrapper .wrapper__input-container--new{
-    padding: 0.5rem !important;
+.input-component__wrapper {
+    width: 80% !important;
+}
+
+.input-component .input-component__wrapper .wrapper__input-container--new {
+    padding: 0.5rem;
 }

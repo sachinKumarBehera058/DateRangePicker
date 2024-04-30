@@ -3,7 +3,6 @@ import { DateRangePicker } from 'react-date-range';
 import 'react-date-range/dist/styles.css';
 import 'react-date-range/dist/theme/default.css';
 import moment from 'moment';
-import './LastDateRangePicker.css';
 import {Input } from '@attrybtech/attryb-ui';
 
 interface DateRangePickerProps {

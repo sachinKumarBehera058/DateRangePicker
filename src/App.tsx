@@ -70,10 +70,10 @@ function App() {
       // For other options, display the full date range
       return selectedDateRange;
     }
-  };  
+  };
 
   return (
-    <div>
+    <div className="Daterange-Picker--container">
       <Button variant="solid" colorScheme="secondary" onClick={handleOpenModal}>
         <img src={calenderIcon}></img>
         {renderSelectedDateRangeText()}
@@ -85,9 +85,18 @@ function App() {
         contentLabel="Date Range Modal"
       >
         <div className="button-container">
-          <Button variant="solid" colorScheme="secondary" onClick={() => handleOptionClick("Fixed")} style={{ cursor: 'pointer' }}>Fixed</Button>
-          <Button variant="solid" colorScheme="secondary" onClick={() => handleOptionClick("Since")} style={{ cursor: 'pointer' }}>Since</Button>
-          <Button variant="solid" colorScheme="secondary" onClick={() => handleOptionClick("Last")} style={{ cursor: 'pointer' }}>Last</Button>
+          <a className="button-container--toggleOption" onClick={() => handleOptionClick("Fixed")} >
+            <div className="container">Fixed</div>
+            <div className="highlighted-bar"></div>
+          </a>
+          <a className="button-container--toggleOption" onClick={() => handleOptionClick("Since")} >
+            <div className="container">Since</div>
+            <div className="highlighted-bar"></div>
+          </a>
+          <a className="button-container--toggleOption" onClick={() => handleOptionClick("Last")} >
+            <div className="container">Last</div>
+            <div className="highlighted-bar"></div>
+          </a>
         </div>
         {selectedOption && (
           <>
