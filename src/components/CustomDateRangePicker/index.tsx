@@ -104,7 +104,7 @@ const CustomDateRangePicker = ({
                         bottom: 'auto',
                         marginRight: '-50%',
                         transform: 'translate(-50%, -50%)',
-                        padding: '0  0 20px 0',
+                        padding: '0px',
                         minWidth: '300px',
                         borderRadius: '8px',
                         boxShadow: '0px 4px 16px rgba(0, 0, 0, 0.2)',
@@ -152,10 +152,10 @@ const CustomDateRangePicker = ({
                 )}
 
                 <div className="button-group">
-                    <Button variant="solid" colorScheme="secondary" onClick={handleCloseModal}>
+                    <Button variant="solid" colorScheme="secondary" id="close-btn" onClick={handleCloseModal}>
                         Close
                     </Button>
-                    <Button onClick={handleApply}>Apply</Button>
+                    <Button id="apply-btn" onClick={handleApply}>Apply</Button>
                 </div>
             </Modal>
         </>
