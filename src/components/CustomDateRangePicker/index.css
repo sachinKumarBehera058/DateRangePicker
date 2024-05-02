@@ -1,6 +1,7 @@
-.daterange-picker--container{
-    border: 1px solid black;
+.rdrDefinedRangesWrapper {
+    display: none;
 }
+
 .button-container {
     display: flex;
     height: 40px;
@@ -10,44 +11,40 @@
     border-bottom: 1px solid var(--color-primary-standard);
 }
 
-.button-container--toggleOption {
-    text-decoration: none;
-    cursor: pointer;
-    align-items: center;
-    background-color: transparent;
-    border-radius: 0px;
-    color: #fff;
-    display: flex;
-    flex: 1 1 0%;
-    flex-direction: column;
-    font-size: 16px;
-    font-weight: 500;
-    height: 100%;
-    justify-content: center;
-    padding: 0px 12px;
-    text-align: center;
-    transition: background-color 0.2s ease 0s;
-    white-space: nowrap;
-}
+    .button-container--toggleOption {
+        text-decoration: none;
+        cursor: pointer;
+        align-items: center;
+        background-color: transparent;
+        border-radius: 0px;
+        color: #fff;
+        display: flex;
+        flex: 1 1 0%;
+        flex-direction: column;
+        font-size: 16px;
+        font-weight: 500;
+        height: 100%;
+        justify-content: center;
+        padding: 0px 12px;
+        text-align: center;
+        transition: background-color 0.2s ease 0s;
+        white-space: nowrap;
+    }
 
-.container {
-    align-items: center;
-    display: flex;
-    flex-basis: auto;
-    flex-grow: 1;
-    justify-content: center;
-}
+        .container {
+            align-items: center;
+            display: flex;
+            flex-basis: auto;
+            flex-grow: 1;
+            justify-content: center;
+        }
 
-.highlighted-bar {
-    border-radius: 12px;
-    height: 3px;
-    width: min(100%, 40px);
-    background-color: #fff;
-}
-
-.rdrDefinedRangesWrapper {
-    display: none;
-}
+        .highlighted-bar {
+            border-radius: 12px;
+            height: 3px;
+            width: min(100%, 40px);
+            background-color: #fff;
+        }
 
 .button-group {
     display: flex;

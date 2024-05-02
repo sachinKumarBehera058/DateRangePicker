@@ -35,15 +35,22 @@ const LastDateRangePicker: React.FC<LastDateRangePickerProps> = ({
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const days = parseInt(e.target.value); 
+    let days = parseInt(e.target.value);
+    // Validate input to ensure it's within a reasonable range
+    if (isNaN(days) || days < 1 || days > 45000) {
+      // If input is invalid, set days to 1 (or any default value) or limit it to the maximum value
+      days = Math.min(Math.max(days, 1), 45000);
+    }
+  
     const newStartDate = moment().subtract(days, 'days').startOf('day').toDate(); 
     setStartDate(newStartDate); 
-
+  
     const formattedStartDate = moment(newStartDate).format('MMMM DD, YYYY');
     const formattedEndDate = moment(endDate).format('MMMM DD, YYYY');
     const dateRange = `${formattedStartDate} - ${formattedEndDate}`;
     onDateRangeChange(dateRange);
   };
+  
 
   const daysDifference = Math.abs(moment(startDate).diff(moment(endDate), 'days'));
 
