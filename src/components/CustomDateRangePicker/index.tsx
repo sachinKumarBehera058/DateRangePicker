@@ -93,6 +93,7 @@ const CustomDateRangePicker = ({
                 isOpen={modalIsOpen}
                 onRequestClose={handleCloseModal}
                 contentLabel="Date Range Modal"
+                id='modal'
                 style={{
                     overlay: {
                         backgroundColor: 'rgba(0, 0, 0, 0.5)',

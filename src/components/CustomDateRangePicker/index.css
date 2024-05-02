@@ -1,93 +1,108 @@
 .rdrDefinedRangesWrapper {
     display: none;
 }
-.rdrDateRangePickerWrapper{
+
+.rdrDateRangePickerWrapper {
     box-shadow: none !important;
 }
 
 .button-container {
     display: flex;
-    height: 40px;
+    height: 50px;
     justify-content: space-around;
     margin-bottom: 16px;
-    background-color: var(--color-primary-standard);
-    border-bottom: 1px solid #EAECF0;
+    background-color: transparent;
+    border-bottom: 1px solid var(--color--white-dark);
 }
 
-    .button-container--toggleOption {
-        text-decoration: none;
-        cursor: pointer;
-        align-items: center;
-        background-color: transparent;
-        border-radius: 0px;
-        color: #ffffff;
-        display: flex;
-        flex: 1 1 0%;
-        flex-direction: column;
-        font-size: 16px;
-        font-weight: 500;
-        height: 100%;
-        justify-content: center;
-        padding: 0px 12px;
-        text-align: center;
-        transition: background-color 0.2s ease 0s;
-        white-space: nowrap;
-    }
+.button-container--toggleOption {
+    text-decoration: none;
+    cursor: pointer;
+    align-items: center;
+    background-color: transparent;
+    border-radius: 0px;
+    color: var(--color--black-faint);
+    display: flex;
+    flex: 1 1 0%;
+    flex-direction: column;
+    font-size: 16px;
+    font-weight: 600;
+    height: 100%;
+    justify-content: center;
+    padding: 0px 12px;
+    text-align: center;
+    transition: background-color 0.2s ease 0s, color 0.2s ease 0s;
+    white-space: nowrap;
+}
 
-        .container {
-            align-items: center;
-            display: flex;
-            flex-basis: auto;
-            flex-grow: 1;
-            justify-content: center;
-        }
+.button-container--toggleOption:hover,
+.button-container--toggleOption.active {
+    color: var(--color--primary-standard);
+}
 
-        .highlighted-bar {
-            border-radius: 12px;
-            height: 2px;
-            width: min(100%, 40px);
-            background-color: #ffffff;
-        }
+.container {
+    align-items: center;
+    display: flex;
+    flex-basis: auto;
+    flex-grow: 1;
+    justify-content: center;
+}
+
+.highlighted-bar {
+    border-radius: 12px;
+    height: 3px;
+    width: min(100%, 40px);
+    background-color: var(--color-primary-standard);
+}
+
 
 .button-group {
     display: flex;
     justify-content: center;
     gap: 12px;
-    border-top: 1px solid #EAECF0;
+    border-top: 1px solid var(--color--white-dark);
     padding: 16px;
 }
-    #close-btn{
-        width: 170px;
-    }
 
-    #apply-btn{
-        width: 170px;
-    }
+#close-btn {
+    width: 142px;
+}
+
+#apply-btn {
+    width: 142px;
+}
 
 .date-range-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 16px;
-    width: 400px;
+    width: 350px;
 }
 
 .date-range-days {
-    padding: 0 35px;
+    padding: 0 24px;
     display: flex;
     justify-content: center;
-    gap: 20px;
-    margin-bottom: 16px;
+    gap: 24px;
 }
 
 .selected-range {
-    padding: 0 35px;
+    padding: 0 24px;
     display: flex;
     justify-content: center;
-    margin-bottom: 16px;
-    gap: 20px;
+    gap: 24px;
+}
+
+.InputField{
+    font-weight: var(--font-weight-bold);
 }
 
 .input-component .input-component__wrapper .wrapper__input-container--new {
     padding: 0.5rem !important;
 }
+
+
+.rdrStartEdge , .rdrInRange , .rdrEndEdge{ 
+    background-color: var(--color-primary-standard) !important;
+  }
+

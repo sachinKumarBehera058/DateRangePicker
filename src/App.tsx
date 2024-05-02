@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import CustomDateRangePicker from './components/CustomDateRangePicker/index';
 import moment from 'moment'; 
+import './App.css';
 
 function App() {
 
@@ -19,13 +20,13 @@ function App() {
   };
 
   return (
-    <>
+    <div className='app'>
       <CustomDateRangePicker
         defaultStartDate={startDate}
         defaultEndDate={endDate}
         onDateRangeChange={handleDateRangeChange}
       />
-    </>
+    </div>
   );
 }
 
