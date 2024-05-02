@@ -1,6 +1,9 @@
 .rdrDefinedRangesWrapper {
     display: none;
 }
+.rdrDateRangePickerWrapper{
+    box-shadow: none !important;
+}
 
 .button-container {
     display: flex;
@@ -17,7 +20,7 @@
         align-items: center;
         background-color: transparent;
         border-radius: 0px;
-        color: #fff;
+        color: #ffffff;
         display: flex;
         flex: 1 1 0%;
         flex-direction: column;
@@ -41,9 +44,9 @@
 
         .highlighted-bar {
             border-radius: 12px;
-            height: 3px;
+            height: 2px;
             width: min(100%, 40px);
-            background-color: #fff;
+            background-color: #ffffff;
         }
 
 .button-group {
