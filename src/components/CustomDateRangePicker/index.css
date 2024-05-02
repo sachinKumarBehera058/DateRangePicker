@@ -97,9 +97,11 @@
     font-weight: var(--font-weight-bold);
 }
 
-.input-component .input-component__wrapper .wrapper__input-container--new {
+.input-component .input-component__wrapper .wrapper__input-container {
     padding: 0.5rem !important;
+    text-align: center;
 }
+
 
 
 .rdrStartEdge,
