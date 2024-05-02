@@ -1,3 +1,5 @@
+// SinceDateRangePicker.tsx
+
 import React, { useState, useEffect } from 'react';
 import { DateRangePicker } from 'react-date-range';
 import 'react-date-range/dist/styles.css';
@@ -5,60 +7,57 @@ import 'react-date-range/dist/theme/default.css';
 import moment from 'moment';
 import { Input } from '@attrybtech/attryb-ui';
 
-interface DateRangePickerProps {
+interface SinceDateRangePickerProps {
   onDateRangeChange: (dateRange: string) => void;
+  defaultStartDate?: Date;
 }
 
-const SinceDateRangePicker: React.FC<DateRangePickerProps> = ({onDateRangeChange}) => {
-  const [daysAgo, setDaysAgo] = useState<string>('7');
-  const [state, setState] = useState([
-    {
-      startDate: moment().subtract(7, 'days').startOf('day').toDate(),
-      endDate: moment().startOf('day').toDate(),
-      key: 'selection',
-    },
-  ]);
+const SinceDateRangePicker: React.FC<SinceDateRangePickerProps> = ({
+  onDateRangeChange,
+  defaultStartDate,
+}) => {
+  const [startDate, setStartDate] = useState<Date | undefined>(defaultStartDate);
+  const [endDate, setEndDate] = useState<Date | undefined>(new Date());
 
   useEffect(() => {
-    const startDate = moment().subtract(Number(daysAgo), 'days').startOf('day').toDate();
-    setState([{ startDate, endDate: moment().startOf('day').toDate(), key: 'selection' }]);
-  }, [daysAgo]);
-
-  // const handleRangeChange = (ranges: any) => {
-  //   setState([{ ...ranges.selection, endDate: moment().startOf('day').toDate() }]);
-  // };
+    if (defaultStartDate) {
+      setStartDate(defaultStartDate);
+    }
+  }, [defaultStartDate]);
 
   const handleRangeChange = (ranges: any) => {
     const startDate = ranges.selection.startDate;
     const endDate = moment().startOf('day').toDate();
-    const formattedStartDate = moment(startDate).format("MMMM DD, YYYY");
-    const formattedEndDate = moment(endDate).format("MMMM DD, YYYY");
+    const formattedStartDate = moment(startDate).format('MMMM DD, YYYY');
+    const formattedEndDate = moment(endDate).format('MMMM DD, YYYY');
     const dateRange = `${formattedStartDate} - ${formattedEndDate}`;
-    onDateRangeChange(dateRange); 
-    setState([{ ...ranges.selection, endDate: moment().startOf('day').toDate() }]);
+    onDateRangeChange(dateRange);
+    setStartDate(startDate);
+    setEndDate(endDate);
   };
 
-  function handleInputChange(e: any): void {
-    setDaysAgo(e.target.value);
+  function handleInputChange(e: React.ChangeEvent<HTMLInputElement>): void {
+    // Handle input change if needed
+    console.log(e);
+
   }
 
   return (
     <div className="date-range-container">
-      {state.map((range, index) => (
-        <div key={index} className="selected-range">
-          <Input
-          variant={"input-with-label"}
-          inputType={"text"}
-          preFilledValue={moment(range.startDate).format('MMMM DD, YYYY')}
+      <div className="selected-range">
+        <Input
+          variant="input-with-label"
+          inputType="text"
+          preFilledValue={startDate ? moment(startDate).format('MMMM DD, YYYY') : ''}
           onChange={handleInputChange}
-          />
-        </div>
-      ))}
+        />
+      </div>
       <DateRangePicker
         onChange={handleRangeChange}
         months={1}
-        ranges={state}
-        direction="horizontal" 
+        direction="horizontal"
+        maxDate={endDate}
+        ranges={[{ startDate, endDate, key: 'selection' }]}
       />
     </div>
   );
