@@ -1,5 +1,3 @@
-// SinceDateRangePicker.tsx
-
 import React, { useState, useEffect } from 'react';
 import { DateRangePicker } from 'react-date-range';
 import 'react-date-range/dist/styles.css';
@@ -37,9 +35,7 @@ const SinceDateRangePicker: React.FC<SinceDateRangePickerProps> = ({
   };
 
   function handleInputChange(e: React.ChangeEvent<HTMLInputElement>): void {
-    // Handle input change if needed
     console.log(e);
-
   }
 
   return (

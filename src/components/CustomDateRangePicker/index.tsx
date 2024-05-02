@@ -68,22 +68,23 @@ const CustomDateRangePicker = ({
 
     const renderSelectedDateRangeText = () => {
         if (selectedOption === 'Last') {
-            // Calculate the difference between the start and end dates
-            const startDate = moment(selectedDateRange.split(' - ')[0], 'MMMM DD, YYYY');
-            const endDate = moment(selectedDateRange.split(' - ')[1], 'MMMM DD, YYYY');
-            const differenceInDays = endDate.diff(startDate, 'days');
-            return isNaN(differenceInDays) ? 'Select Date Range' : `Last ${differenceInDays} Days`;
+          const startDate = moment(selectedDateRange.split(' - ')[0], 'MMMM DD, YYYY');
+          const endDate = moment(selectedDateRange.split(' - ')[1], 'MMMM DD, YYYY');
+          const differenceInDays = endDate.diff(startDate, 'days');
+          return isNaN(differenceInDays) ? 'Select Date Range' : `Last ${differenceInDays} Days`;
         } else if (selectedOption === 'Since') {
-            // Display only the start date
+          if (!selectedDateRange) {
+            return 'Select Date Range';
+          } else {
             return `Since ${selectedDateRange.split(' - ')[0]}`;
+          }
         } else {
-            // For other options, display the full date range
-            return selectedDateRange;
+          return selectedDateRange || 'Select Date Range';
         }
-    };
+      };      
 
     return (
-        <div className="Daterange-Picker--container">
+        <>
             <Button variant="solid" colorScheme="secondary" onClick={handleOpenModal}>
                 <img src={calenderIcon} alt="calendar" />
                 {renderSelectedDateRangeText()}
@@ -157,7 +158,7 @@ const CustomDateRangePicker = ({
                     <Button onClick={handleApply}>Apply</Button>
                 </div>
             </Modal>
-        </div>
+        </>
     );
 };
 

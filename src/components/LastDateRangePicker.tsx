@@ -25,7 +25,7 @@ const LastDateRangePicker: React.FC<LastDateRangePickerProps> = ({
 
   const handleRangeChange = (ranges: any) => {
     const startDate = ranges.selection.startDate;
-    const endDate = new Date(); // Update endDate to current date
+    const endDate = new Date(); 
     const formattedStartDate = moment(startDate).format('MMMM DD, YYYY');
     const formattedEndDate = moment(endDate).format('MMMM DD, YYYY');
     const dateRange = `${formattedStartDate} - ${formattedEndDate}`;
@@ -35,18 +35,16 @@ const LastDateRangePicker: React.FC<LastDateRangePickerProps> = ({
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const days = parseInt(e.target.value); // Parse the input value to an integer
-    const newStartDate = moment().subtract(days, 'days').startOf('day').toDate(); // Calculate new start date based on the input value
-    setStartDate(newStartDate); // Update the state with the new start date
+    const days = parseInt(e.target.value); 
+    const newStartDate = moment().subtract(days, 'days').startOf('day').toDate(); 
+    setStartDate(newStartDate); 
 
-    // Format the date range string and call the onDateRangeChange callback with the updated date range
     const formattedStartDate = moment(newStartDate).format('MMMM DD, YYYY');
     const formattedEndDate = moment(endDate).format('MMMM DD, YYYY');
     const dateRange = `${formattedStartDate} - ${formattedEndDate}`;
     onDateRangeChange(dateRange);
   };
 
-  // Calculate the positive difference between startDate and endDate
   const daysDifference = Math.abs(moment(startDate).diff(moment(endDate), 'days'));
 
   return (

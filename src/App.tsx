@@ -9,7 +9,6 @@ function App() {
   const [startDate, setStartDate] = useState(moment.utc(sevenDaysAgo).startOf('day').format('YYYY-MM-DDTHH:mm:ss.SSS[Z]'));
   const [endDate, setEndDate] = useState(moment.utc(currentDate).startOf('day').format('YYYY-MM-DDTHH:mm:ss.SSS[Z]'));
 
-  // Function to handle date range change
   const handleDateRangeChange = (dateStr: string) => {
     const dateRangeArray = dateStr.split(" - ");
     let start = moment.utc(dateRangeArray[0]).startOf('day').format('YYYY-MM-DDTHH:mm:ss.SSS[Z]');

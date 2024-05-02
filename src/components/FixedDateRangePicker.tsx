@@ -37,7 +37,6 @@ const FixedDateRangePicker: React.FC<FixedDateRangePickerProps> = ({
   };
 
   function handleInputChange(e: React.ChangeEvent<HTMLInputElement>): void {
-    // Handle input change if needed
     console.log(e);
   }
 
