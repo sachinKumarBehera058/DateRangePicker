@@ -93,7 +93,7 @@
     gap: 24px;
 }
 
-.InputField{
+.InputField {
     font-weight: var(--font-weight-bold);
 }
 
@@ -102,7 +102,33 @@
 }
 
 
-.rdrStartEdge , .rdrInRange , .rdrEndEdge{ 
+.rdrStartEdge,
+.rdrInRange,
+.rdrEndEdge {
     background-color: var(--color-primary-standard) !important;
-  }
+}
 
+.rdrMonthName {
+    display: none !important;
+}
+
+.rdrWeekDays {
+    margin: 12px;
+}
+
+.rdrWeekDay {
+    font-family: 'inter' !important;
+    font-weight: 500 !important;
+    font-size: 14px !important;
+    color: #344054 !important;
+    line-height: 20px !important;
+}
+
+.rdrMonthPicker select,
+.rdrYearPicker select {
+    font-family: 'inter' !important;
+    font-weight: 500 !important;
+    font-size: 14px !important;
+    color: #344054 !important;
+    line-height: 20px !important;
+}

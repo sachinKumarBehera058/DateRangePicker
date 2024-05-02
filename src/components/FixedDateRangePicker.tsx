@@ -3,7 +3,7 @@ import { DateRangePicker } from 'react-date-range';
 import 'react-date-range/dist/styles.css';
 import 'react-date-range/dist/theme/default.css';
 import moment from 'moment';
-import { InputField } from '@attrybtech/attryb-ui';
+import { Input } from '@attrybtech/attryb-ui';
 
 interface FixedDateRangePickerProps {
   onDateRangeChange: (dateRange: string) => void;
@@ -43,13 +43,13 @@ const FixedDateRangePicker: React.FC<FixedDateRangePickerProps> = ({
   return (
     <div className="date-range-container">
       <div className="selected-range">
-        <InputField
+        <Input
           variant="input-with-label"
           inputType="text"
           preFilledValue={startDate ? moment(startDate).format('MMMM DD, YYYY') : ''}
           onChange={handleInputChange}
         />
-        <InputField
+        <Input
           variant="input-with-label"
           inputType="text"
           preFilledValue={endDate ? moment(endDate).format('MMMM DD, YYYY') : ''}

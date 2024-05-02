@@ -3,7 +3,7 @@ import { DateRangePicker } from 'react-date-range';
 import 'react-date-range/dist/styles.css';
 import 'react-date-range/dist/theme/default.css';
 import moment from 'moment';
-import { InputField } from '@attrybtech/attryb-ui';
+import { Input } from '@attrybtech/attryb-ui';
 
 interface LastDateRangePickerProps {
   onDateRangeChange: (dateRange: string) => void;
@@ -57,13 +57,13 @@ const LastDateRangePicker: React.FC<LastDateRangePickerProps> = ({
   return (
     <div className="date-range-container">
       <div className="date-range-days">
-        <InputField
+        <Input
           variant="input-with-label"
           inputType="number"
           preFilledValue={daysDifference.toString() === '0' ? "Enter a number" : daysDifference.toString()}
           onChange={handleInputChange}
         />
-        <InputField variant="input-with-label" inputType="text" preFilledValue="Days" />
+        <Input variant="input-with-label" inputType="text" preFilledValue="Days" />
       </div>
       <DateRangePicker
         onChange={handleRangeChange}
