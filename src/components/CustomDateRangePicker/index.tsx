@@ -84,7 +84,7 @@ const CustomDateRangePicker = ({
       };      
 
     return (
-        <>
+        <div className='date-range-modal'>
             <Button variant="solid" colorScheme="secondary" onClick={handleOpenModal}>
                 <img src={calenderIcon} alt="calendar" />
                 {renderSelectedDateRangeText()}
@@ -153,13 +153,13 @@ const CustomDateRangePicker = ({
                 )}
 
                 <div className="button-group">
-                    <Button variant="solid" colorScheme="secondary" id="close-btn" onClick={handleCloseModal}>
-                        Close
+                    <Button variant="solid" colorScheme="secondary" id="cancel-btn" onClick={handleCloseModal}>
+                        Cancel
                     </Button>
                     <Button id="apply-btn" onClick={handleApply}>Apply</Button>
                 </div>
             </Modal>
-        </>
+        </div>
     );
 };
 
