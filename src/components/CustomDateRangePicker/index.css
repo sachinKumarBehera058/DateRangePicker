@@ -8,6 +8,7 @@
 
 .date-range-modal{
     font-family: 'Inter' !important;
+    display: flex;
 }
 
 .button-container {
@@ -15,7 +16,7 @@
     height: 40px;
     justify-content: space-around;
     margin-bottom: 16px;
-    background-color: #00000000;
+    background-color: #f6f6f6;
     border-bottom: 1px solid var(--color--white-dark);
 }
 
@@ -24,7 +25,7 @@
     text-decoration: none;
     cursor: pointer;
     align-items: center;
-    background-color: #00000000;
+    background-color: #f6f6f6;
     border-radius: 0px;
     color: #8f8f91;
     display: flex;
