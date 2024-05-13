@@ -71,20 +71,20 @@
 }
 
 #cancel-btn {
-    width: 142px;
+    width: 100%;
     font-size: 14px !important;
 }
 
 #apply-btn {
-    width: 142px;
+    width: 100%;
     font-size: 14px !important;
 }
 
 .date-range-container {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    width: 350px;
+    justify-content: center;
+    width: 300px;
 }
 
 .date-range-days {
@@ -112,6 +112,10 @@
 
 .rdrMonthName {
     display: none !important;
+}
+
+.rdrMonth {
+    width: 24.667em !important;
 }
 
 .rdrWeekDays {
