@@ -61,6 +61,7 @@ const FixedDateRangePicker: React.FC<FixedDateRangePickerProps> = ({
         months={1}
         direction="horizontal"
         maxDate={currentDate}
+        weekdayDisplayFormat={'EEEEEE'}
         ranges={[{ startDate, endDate, key: 'selection' }]}
       />
     </div>

@@ -53,6 +53,7 @@ const SinceDateRangePicker: React.FC<SinceDateRangePickerProps> = ({
         months={1}
         direction="horizontal"
         maxDate={endDate}
+        weekdayDisplayFormat={'EEEEEE'}
         ranges={[{ startDate, endDate, key: 'selection' }]}
       />
     </div>

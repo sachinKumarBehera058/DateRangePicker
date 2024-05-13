@@ -70,6 +70,7 @@ const LastDateRangePicker: React.FC<LastDateRangePickerProps> = ({
         months={1}
         direction="horizontal"
         ranges={[{ startDate, endDate, key: 'selection' }]}
+        weekdayDisplayFormat={'EEEEEE'}
         maxDate={endDate}
       />
     </div>
