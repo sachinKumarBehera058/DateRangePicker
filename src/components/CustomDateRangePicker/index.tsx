@@ -45,11 +45,15 @@ const CustomDateRangePicker = ({
     };
 
     const handleApply = () => {
-        setModalIsOpen(false);
-        if (selectedDateRange) {
-            onDateRangeChange(selectedDateRange);
+        if (!selectedDateRange) {
+            const defaultStartDate = moment().subtract(7, 'days').format('MMMM DD, YYYY');
+            const defaultEndDate = moment().format('MMMM DD, YYYY');
+            setSelectedDateRange(`${defaultStartDate} - ${defaultEndDate}`);
+            onDateRangeChange(`${defaultStartDate} - ${defaultEndDate}`);
         }
+        setModalIsOpen(false);
     };
+    
 
     const handleOptionClick = (option: string) => {
         setSelectedOption(option);
