@@ -103,7 +103,7 @@ const CustomDateRangePicker = ({
                         top: '60px',
                         left: '10px',
                         padding: '0px',
-                        maxWidth: '310px',
+                        maxWidth: '302px',
                         borderRadius: '12px',
                         boxShadow: '0px 4px 16px rgba(0, 0, 0, 0.2)',
                         border: 'none',

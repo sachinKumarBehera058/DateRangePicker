@@ -18,7 +18,7 @@ const FixedDateRangePicker: React.FC<FixedDateRangePickerProps> = ({
 }) => {
   const [startDate, setStartDate] = useState<Date | undefined>(defaultStartDate);
   const [endDate, setEndDate] = useState<Date | undefined>(defaultEndDate);
-
+  const currentDate = new Date();
   useEffect(() => {
     if (defaultStartDate && defaultEndDate) {
       setStartDate(defaultStartDate);
@@ -60,6 +60,7 @@ const FixedDateRangePicker: React.FC<FixedDateRangePickerProps> = ({
         onChange={handleRangeChange}
         months={1}
         direction="horizontal"
+        maxDate={currentDate}
         ranges={[{ startDate, endDate, key: 'selection' }]}
       />
     </div>
