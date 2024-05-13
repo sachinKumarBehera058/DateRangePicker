@@ -95,6 +95,9 @@ const CustomDateRangePicker = ({
                 contentLabel="Date Range Modal"
                 id='modal'
                 style={{
+                    overlay:{
+                        background: 'transparent'
+                    },
                     content: {
                         position: 'relative',
                         top: '60px',
