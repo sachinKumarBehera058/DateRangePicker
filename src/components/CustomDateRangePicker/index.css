@@ -101,6 +101,10 @@
     gap: 24px;
 }
 
+.selected-since-range{
+    padding: 0 24px;
+}
+
 .InputField {
     font-weight: var(--font-weight-bold);
 }

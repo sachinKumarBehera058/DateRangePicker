@@ -40,7 +40,7 @@ const SinceDateRangePicker: React.FC<SinceDateRangePickerProps> = ({
 
   return (
     <div className="date-range-container">
-      <div className="selected-range">
+      <div className="selected-since-range">
         <Input
           variant="input-with-label"
           inputType="text"
