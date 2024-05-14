@@ -76,7 +76,7 @@
     padding: 16px;
 }
 
-#cancel-btn {
+/* #cancel-btn {
     width: 100%;
     font-size: 14px !important;
 }
@@ -84,7 +84,7 @@
 #apply-btn {
     width: 100%;
     font-size: 14px !important;
-}
+} */
 
 .date-range-container {
     display: flex;
@@ -94,7 +94,6 @@
 
 .date-range-days {
     padding: 0 24px;
-    height: 40px;
     display: flex;
     justify-content: center;
     gap: 12px;
@@ -111,16 +110,18 @@
     padding: 0 24px;
 }
 
-.InputField {
+/* .InputField {
     font-weight: var(--font-weight-bold);
-}
+} 
 
+/* 
 .input-component .input-component__wrapper .wrapper__input-container {
     padding: 8px !important;
     /* background-color: #f6f6f6 !important; */
     /* border: none !important; */
-    border-radius: 9px !important;
-}
+    /* border-radius: 9px !important;
+} 
+*/
 
 .rdrMonthName {
     display: none !important;
