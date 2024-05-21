@@ -32,7 +32,7 @@
     cursor: pointer;
     align-items: center;
     background-color: #f6f6f6;
-    border-radius: 0px;
+    border-radius: 4px;
     color: #8f8f91;
     display: flex;
     flex: 1 1 0%;
@@ -63,7 +63,7 @@
 .highlighted-bar {
     border-radius: 12px;
     height: 3px;
-    width: min(100%, 40px);
+    width: 45px;
     background-color: var(--color-primary-standard);
 }
 
